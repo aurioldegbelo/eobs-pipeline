@@ -116,7 +116,7 @@ code/
 @prefix cf: <http://vocab.nerc.ac.uk/standard_name/> .
 @prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix oboe: <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#> .
-@prefix observation: <http://climate-kg.org/observation/> .
+@prefix eobs: <https://w3id.org/climateobservations/eobs-v31/data> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
@@ -127,8 +127,8 @@ code/
 
 | Resource Type | Pattern | Example |
 |---------------|---------|---------|
-| **Observation** | `observation:{var}_{lat}_{lon}_{timestamp}` | `observation:tg_50p00_3p00_20200101T000000` |
-| **ObservationCollection** | `observation:eobs_{var}_{year_start}_{year_end}` | `observation:eobs_tg_2020_2024` |
+| **Observation** | `eobs:{var}_{lat}_{lon}_{timestamp}` | `eobs:tg_50p00_3p00_20200101T000000` |
+| **ObservationCollection** | `eobs:eobs_{var}_{year_start}_{year_end}` | `eobs:eobs_tg_2020_2024` |
 | **Sensor** | `sosa:{var}_sensor` | `sosa:tg_sensor` |
 | **Location** | `geo1:grid_{lat}_{lon}` | `geo1:grid_50p00_3p00` |
 | **Property** | `cf:{cf_standard_name}` | `cf:air_temperature` |
@@ -139,7 +139,7 @@ code/
 Each observation follows this simplified pattern:
 
 ```turtle
-observation:tg_50p00_3p00_20200101T000000 a sosa:Observation ;
+eobs:tg_50p00_3p00_20200101T000000 a sosa:Observation ;
     sosa:hasFeatureOfInterest geo1:grid_50p00_3p00 ;
     sosa:hasResult [
         a qudt:QuantityValue ;
@@ -156,10 +156,10 @@ observation:tg_50p00_3p00_20200101T000000 a sosa:Observation ;
 Collections group all observations for a variable and time period:
 
 ```turtle
-observation:eobs_tg_2020_2024 a oboe:ObservationCollection ;
-    sosa:hasMember observation:tg_50p00_3p00_20200101T000000,
-                   observation:tg_50p00_3p00_20200102T000000,
-                   observation:tg_50p00_3p00_20200103T000000,
+eobs:eobs_tg_2020_2024 a oboe:ObservationCollection ;
+    sosa:hasMember eobs:tg_50p00_3p00_20200101T000000,
+                   eobs:tg_50p00_3p00_20200102T000000,
+                   eobs:tg_50p00_3p00_20200103T000000,
                    ... .
 ```
 
@@ -310,20 +310,20 @@ Example file structure:
 @prefix cf: <http://vocab.nerc.ac.uk/standard_name/> .
 @prefix geo1: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix oboe: <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#> .
-@prefix observation: <http://climate-kg.org/observation/> .
+@prefix eobs: <http://climate-kg.org/observation/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # ObservationCollection for temperature (2020-2024)
-observation:eobs_tg_2020_2024 a oboe:ObservationCollection ;
-    sosa:hasMember observation:tg_50p00_3p00_20200101T000000,
-                   observation:tg_50p00_3p00_20200102T000000,
+eobs:eobs_tg_2020_2024 a oboe:ObservationCollection ;
+    sosa:hasMember eobs:tg_50p00_3p00_20200101T000000,
+                   eobs:tg_50p00_3p00_20200102T000000,
                    ... .
 
 # Individual observations
-observation:tg_50p00_3p00_20200101T000000 a sosa:Observation ;
+eobs:tg_50p00_3p00_20200101T000000 a sosa:Observation ;
     sosa:hasFeatureOfInterest geo1:grid_50p00_3p00 ;
     sosa:hasResult [
         a qudt:QuantityValue ;
@@ -374,7 +374,7 @@ ORDER BY DESC(?temp)
 
 ```sparql
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
-PREFIX observation: <http://climate-kg.org/observation/>
+PREFIX eobs: <http://climate-kg.org/observation/>
 PREFIX oboe: <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#>
 
 SELECT ?collection (COUNT(?obs) as ?count) WHERE {
@@ -492,7 +492,7 @@ def get_sensor_uri(variable_code: str) -> str:
 
 def get_observation_uri(variable_code: str, lat: float, lon: float, timestamp: str) -> str:
     """Generate observation URI"""
-    # Pattern: observation:{var}_{lat}_{lon}_{timestamp}
+    # Pattern: eobs:{var}_{lat}_{lon}_{timestamp}
     ...
 ```
 
