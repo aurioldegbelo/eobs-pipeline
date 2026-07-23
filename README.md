@@ -10,7 +10,9 @@
 
 ## 📋 Overview
 
-This pipeline transforms E-OBS v31.0e ensemble mean NetCDF files into queryable RDF/Turtle format following W3C semantic web standards. The system generates SOSA (Sensor, Observation, Sample, and Actuator) observation patterns organized into observation collections, enabling SPARQL queries and semantic integration for climate data analysis. To see the code for the agent that uses the knowledge graph, see https://github.com/ammar450/climate-chat-agent.
+This pipeline transforms E-OBS v31.0e ensemble mean NetCDF files into queryable RDF/Turtle format following W3C semantic web standards. The system generates SOSA (Sensor, Observation, Sample, and Actuator) observation patterns organized into observation collections, enabling SPARQL queries and semantic integration for climate data analysis. 
+
+This GitHub repository documents only the transformation pipeline into RDF. To see an agent that uses the knowledge graph, see https://github.com/ammar450/climate-chat-agent.
 
 ### Key Features
 
