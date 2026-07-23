@@ -10,7 +10,7 @@
 
 ## 📋 Overview
 
-This pipeline transforms E-OBS v31.0e ensemble mean NetCDF files into queryable RDF/Turtle format following W3C semantic web standards. The system generates SOSA (Sensor, Observation, Sample, and Actuator) observation patterns organized into observation collections, enabling SPARQL queries and semantic integration for climate data analysis.
+This pipeline transforms E-OBS v31.0e ensemble mean NetCDF files into queryable RDF/Turtle format following W3C semantic web standards. The system generates SOSA (Sensor, Observation, Sample, and Actuator) observation patterns organized into observation collections, enabling SPARQL queries and semantic integration for climate data analysis. To see the code for the agent that uses the knowledge graph, see https://github.com/ammar450/climate-chat-agent.
 
 ### Key Features
 
@@ -92,8 +92,8 @@ python pipeline.py --variables tg tn tx --start-year 2015 --end-year 2024
 
 | Time Range | Variables | Observations | File Size |
 |------------|-----------|--------------|-----------|
-| 1 year (2020) | All 7 | ~10,000 | ~4 MB |
-| 5 years (2020-2024) | All 7 | ~10,000 | ~4 MB |
+| 1 year (2020) | All 5 | ~10,000 | ~4 MB |
+| 5 years (2020-2024) | All 5 | ~10,000 | ~4 MB |
 
 *Note: Based on sampled data (every 10th grid cell)*
 
@@ -142,10 +142,27 @@ ls -lh ttl/*.ttl
 - **RDFLib Documentation**: https://rdflib.readthedocs.io/
 - **CF Standard Names**: http://vocab.nerc.ac.uk/standard_name/
 
----
-
 **Status**: ✅ Production Ready | **Last Updated**: July 23, 2026
 
 For detailed information, see the [documentation](#-documentation) section above.
 
+---
+
+## 🙏 Acknowledgments
+
+The work has been funded by the European Project EOSC Data Commons. A dump of the knowledge graph is available at https://doi.org/10.34740/kaggle/dsv/16870986. 
+
+If you reuse the EOBS knowledge graph, please cite:
+
+```bash
+
+@inproceedings{yousafEOBSKnowledgeGraph2026,
+	address = {Ghent, Belgium},
+	title = {The {EOBS} knowledge graph: {A} knowledge graph of {European} climate observations},
+	booktitle = {Companion Proceedings of SEMANTiCS 2026},
+	author = {Yousaf, Ammar and Degbelo, Auriol},
+	year = {2026},
+}
+
+```
 
