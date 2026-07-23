@@ -24,7 +24,7 @@ This pipeline transforms E-OBS v31.0e ensemble mean NetCDF files into queryable 
 
 ### Supported Climate Variables
 
-7 climate variables: **fg** (wind speed), **hu** (humidity), **qq** (radiation), **rr** (precipitation), **tg** (mean temp), **tn** (min temp), **tx** (max temp)
+7 climate variables: **fg** (wind speed), **hu** (humidity), **qq** (radiation), **rr** (precipitation), **tg** (mean temp)
 
 
 
@@ -134,8 +134,6 @@ ls -lh ttl/*.ttl
 | **qq** | Global Radiation | W/m² | `surface_downwelling_shortwave_flux_in_air` |
 | **rr** | Precipitation Amount | mm | `precipitation_amount` |
 | **tg** | Mean Temperature | °C | `air_temperature` |
-| **tn** | Minimum Temperature | °C | `air_temperature` |
-| **tx** | Maximum Temperature | °C | `air_temperature` |
 
 ### Key Resources
 
@@ -146,6 +144,8 @@ ls -lh ttl/*.ttl
 
 ---
 
-**Status**: ✅ Production Ready | **Last Updated**: April 14, 2026
+**Status**: ✅ Production Ready | **Last Updated**: July 23, 2026
 
 For detailed information, see the [documentation](#-documentation) section above.
+
+
